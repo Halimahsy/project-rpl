@@ -1,15 +1,3 @@
-"""
-main.py  -  Aplikasi mobile "Pilah SMS" (Kivy)
-Lapisan BOUNDARY dari Class Diagram:
-    VerifikasiNomorUI -> VerifNomorScreen + VerifOtpScreen
-    MengelolaSMSUI    -> BerandaScreen + DetailScreen + AkunScreen
-    KirimSMSUI        -> KirimScreen
-Logika bisnis (entity & control) ada di logic.py.
-
-Jalankan di komputer :  python main.py
-Jadikan APK Android  :  buildozer android debug   (lihat buildozer.spec)
-"""
-
 import random
 import re
 from datetime import datetime
