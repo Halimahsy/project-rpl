@@ -1,18 +1,22 @@
-# Isinya prototipe apk Klasifikasi Filering dan Kategorisasi SMS OTP serta Notifikasi Transaksi
-untuk project RPL kelas R7X.
+# Pilah SMS
 
-# Judul Project: 
-Sistem Klasifikasi Filering dan Kategorisasi SMS OTP serta Notifikasi Transaksi Berbasis Naive Bayes
+Struktur (satu class = satu file):
 
-## Anggota:
-- Wina Salsabila 1790
-- Syarifah Halimah 1783
-- Muhammad Sigit .Y 1813
+    main.py                      program utama (UI Kivy / boundary)
+    entity/   kategori.py  sms.py  otp.py  user.py
+    control/  login.py (VerifikasiNomorController)
+              kelola_sms.py (SMSController)
+              filtering_sms.py (FilteringController)
+              kategorisasi_sms.py (KategorisasiController)
+              naive_bayes.py (NaiveBayes)
+    core/     sistem.py  database.py  utils.py  konstanta.py  data_demo.py
 
-# Cara run:
-## Run di PC :  
-  > - pastikan sudah install semua di requirements.txt
-  > - jika belum, jalankan command ini di terminal: pip install kivy plyer
-  > - jalankan command ini lewat terminal cmd atau di terminal vsc: python main.py 
-## Run di android:
-  > jadikan APK Android lewat :  buildozer android debug   (cek file buildozer.spec)
+Contoh memanggil dari program utama / terminal:
+
+    from core.sistem import Sistem
+    s = Sistem("data.json")
+    otp = s.verifikasiCtrl.kirimOTP("85723412004")      # control/login.py
+    s.smsCtrl.terimaSMS({"nomorPengirim": "BCA", "isiPesan": "Transfer masuk Rp1.000"})
+    s.smsCtrl.getSMS()                                  # control/kelola_sms.py
+
+Jalankan: `python main.py`   |   APK: `buildozer android debug`
